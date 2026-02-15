@@ -10,7 +10,6 @@ const App: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Initialize audio object
     audioRef.current = new Audio(MUSIC_URL);
     audioRef.current.loop = true;
     audioRef.current.volume = 0.6;
@@ -30,7 +29,6 @@ const App: React.FC = () => {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      // User interaction allows playing audio
       audioRef.current.play().catch(e => console.error("Audio play failed:", e));
       setIsPlaying(true);
       if (!hasStarted) setHasStarted(true);
@@ -74,7 +72,7 @@ const App: React.FC = () => {
 
       </motion.main>
       
-      {/* Vignette Overlay for cinematic feel (Green tinted) */}
+      {/*(Green tinted) */}
       <div className="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(6,78,59,0.1)_100%)] z-0"></div>
     </div>
   );
