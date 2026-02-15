@@ -12,5 +12,5 @@ export const CONFESSION_TEXT = [
 // Ideally, this should be replaced with the actual file path or a valid URL to "Thinking About You".
 // For the demo, we use a generic romantic loop or a placeholder to prevent errors.
 // User instruction: Replace this URL with your local file or hosted MP3.
-export const MUSIC_URL = "/Thinkin Bout You.flac";
+export const MUSIC_URL = `${import.meta.env.BASE_URL}Thinkin-Bout-You.mp3`;
 // Note: Changed to a classical piece for copyright safety in the demo, but code is ready for the requested song.
