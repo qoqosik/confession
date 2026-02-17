@@ -20,3 +20,5 @@ export const CONFESSION_PAGES = [
 ];
 
 export const MUSIC_URL = `${import.meta.env.BASE_URL}Thinkin-Bout-You.mp3`;
+
+export const FINAL_GIF_URL = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHgzd3dmaHplcnBkbm5sM2tjajltMGJndnhhZHNuZWZzYnJieGdsYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dWeUitmjYD11awhCDd/giphy.gif";

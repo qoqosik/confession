@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { CONFESSION_PAGES } from '../constants';
+import { CONFESSION_PAGES, FINAL_GIF_URL } from '../constants';
 
 interface LoveLetterProps {
   isVisible: boolean;
@@ -40,6 +40,8 @@ const LoveLetter: React.FC<LoveLetterProps> = ({ isVisible }) => {
       filter: 'blur(5px)'
     })
   };
+
+  const isLastPage = page === CONFESSION_PAGES.length - 1;
 
   return (
     <div className="max-w-3xl mx-auto mt-8 sm:mt-12 px-2 pb-20 relative min-h-[400px]">
@@ -109,6 +111,28 @@ const LoveLetter: React.FC<LoveLetterProps> = ({ isVisible }) => {
                 dangerouslySetInnerHTML={{ __html: paragraph.replace(/\n/g, '<br/>') }}
               />
             ))}
+
+            {/* Render GIF only on the last page */}
+            {isLastPage && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ 
+                  duration: 1.2, 
+                  // Calculate delay based on number of paragraphs to appear after text
+                  delay: CONFESSION_PAGES[page].length * 0.8 + 0.5,
+                  ease: "easeOut" 
+                }}
+                className="flex justify-center pt-6 pb-4"
+              >
+                <img 
+                  src={FINAL_GIF_URL} 
+                  alt="Us" 
+                  className="rounded-xl shadow-lg border-4 border-white/50 w-full max-w-[300px] sm:max-w-[350px]"
+                />
+              </motion.div>
+            )}
+
           </motion.div>
         </AnimatePresence>
       </div>
